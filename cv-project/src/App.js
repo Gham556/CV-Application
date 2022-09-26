@@ -67,6 +67,16 @@ class App extends Component {
     this.setState({skillArray: this.state.skillArray.concat(this.state.skill)})
   };
 
+  testEdit = (e) => {
+    e.preventDefault()
+    console.log(this.state.educationArray)
+    const copy = this.state.educationArray.slice();
+    copy[0] = {school: 'run', loe: 'DMC', yog: 'rules'};
+    console.log(copy)
+    this.setState({educationArray: copy} )
+    console.log(this.state.educationArray)
+  }
+
   render () {  
       const {work, workArray, education, educationArray, skill, skillArray} = this.state;
     return (
@@ -130,6 +140,7 @@ class App extends Component {
          <button id='skillButton' type='submit'>Submit</button>
          </form>
          <PracticalExperience skillArray={skillArray}/>
+         <button type='submit' onClick={this.testEdit}>Test Edit</button>
       </div>
     );  
   } 
