@@ -7,7 +7,7 @@ const PracticalExperience = (props) => {
         <ul>
             {skillArray.map((skill) => {
                 return (
-                    <li>
+                    <li key={skill.id}>
                         {skill}
                     </li>
                 )

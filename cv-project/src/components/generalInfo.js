@@ -7,7 +7,7 @@ const Workexperience = (props) => {
         <ul> 
             {workArray.map((work) => {
             return(
-               <li> 
+               <li key={work.id}> 
                 <p>{work.employer}</p>
                 <p>{work.start}</p>
                 <p>{work.end}</p>
