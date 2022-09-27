@@ -60,7 +60,7 @@ class App extends Component {
 
   onSubmitWork = (e) => {
     e.preventDefault();
-    this.setState({workArray: this.state.workArray.concat(this.state.work), work: {employer: '', start: '', end: '', position: '', id: uniqid(), pointer: this.state.workArray.length}})
+    this.setState({workArray: this.state.workArray.concat(this.state.work)}, () => {return (this.setState({work: {employer: '', start: '', end: '', position: '', id: uniqid(), pointer: this.state.workArray.length}}))})
   };
 
   onSubmitEducation = (e) => {
@@ -84,7 +84,10 @@ class App extends Component {
   }
 
   testThis = (e) => {
-    console.log(e.target.className);
+    console.log('runs')
+    const copy = this.state.workArray.slice();
+    copy[e.target.className] = {employer: 'run', start: 'DMC', end: 'rules', position: copy[e.target.className].position, id: copy[e.target.className].id, pointer: copy[e.target.className].pointer};
+    this.setState({workArray: copy} );
   }
 
   render () {  
