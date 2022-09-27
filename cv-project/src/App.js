@@ -19,76 +19,61 @@ class App extends Component {
   };
 
   onEmployerChange = (e) => {
-    console.log(this.state.work.pointer)
-    this.setState({work: {employer: e.target.value, start: this.state.work.start, end: this.state.work.end, position: this.state.work.position, id: this.state.work.id, pointer: this.state.work.pointer}})
-  
+    this.setState({work: {employer: e.target.value, start: this.state.work.start, end: this.state.work.end, position: this.state.work.position, id: this.state.work.id, pointer: this.state.work.pointer}});
   };
 
   onWorkStartChange = (e) => {
-    console.log(this.state.work.pointer)
-
-    this.setState({work: {employer: this.state.work.employer, start: e.target.value, end: this.state.work.end, position: this.state.work.position, id: this.state.work.id, pointer: this.state.work.pointer}})
+    this.setState({work: {employer: this.state.work.employer, start: e.target.value, end: this.state.work.end, position: this.state.work.position, id: this.state.work.id, pointer: this.state.work.pointer}});
   };
 
   onWorkEndChange = (e) => {
-    console.log(this.state.work.pointer)
-
-    this.setState({work: {employer: this.state.work.employer, start: this.state.work.start, end: e.target.value, position: this.state.work.position, id: this.state.work.id, pointer: this.state.work.pointer}})
+    this.setState({work: {employer: this.state.work.employer, start: this.state.work.start, end: e.target.value, position: this.state.work.position, id: this.state.work.id, pointer: this.state.work.pointer}});
   };
 
   onPositionChange = (e) => {
-    console.log(this.state.work.pointer)
-
-    this.setState({work: {employer:this.state.work.employer, start: this.state.work.start, end: this.state.work.end, position: e.target.value, id: this.state.work.id, pointer: this.state.work.pointer}})
+    this.setState({work: {employer:this.state.work.employer, start: this.state.work.start, end: this.state.work.end, position: e.target.value, id: this.state.work.id, pointer: this.state.work.pointer}});
   };
 
   onSchoolChange = (e) => {
-    this.setState({education: {school: e.target.value, loe: this.state.education.loe, yog: this.state.education.yog, id: this.state.education.id}})
+    this.setState({education: {school: e.target.value, loe: this.state.education.loe, yog: this.state.education.yog, id: this.state.education.id}});
   };
 
   onLOEChange = (e) => {
-    this.setState({education: {school:this.state.education.school, loe: e.target.value, yog: this.state.education.yog, id: this.state.education.id}})
+    this.setState({education: {school:this.state.education.school, loe: e.target.value, yog: this.state.education.yog, id: this.state.education.id}});
   };
   
   onYOGChange = (e) => {
-    this.setState({education: {school:this.state.education.school, loe: this.state.education.loe, yog: e.target.value, id: this.state.education.id}})
+    this.setState({education: {school:this.state.education.school, loe: this.state.education.loe, yog: e.target.value, id: this.state.education.id}});
   };
 
   onSkillChange = (e) =>{
-    this.setState({pratcialSkill: {skill: e.target.value, id: this.state.pratcialSkill.id}})
+    this.setState({pratcialSkill: {skill: e.target.value, id: this.state.pratcialSkill.id}});
   };
 
   onSubmitWork = (e) => {
     e.preventDefault();
-    this.setState({workArray: this.state.workArray.concat(this.state.work)}, () => {return (this.setState({work: {employer: '', start: '', end: '', position: '', id: uniqid(), pointer: this.state.workArray.length}}))})
+    this.setState({workArray: this.state.workArray.concat(this.state.work)}, () => {return (this.setState({work: {employer: '', start: '', end: '', position: '', id: uniqid(), pointer: this.state.workArray.length}}))});
   };
 
   onSubmitEducation = (e) => {
     e.preventDefault();
-    this.setState({educationArray: this.state.educationArray.concat(this.state.education), education: {school: '', loe: '', yog: '', id: uniqid()}})
+    this.setState({educationArray: this.state.educationArray.concat(this.state.education), education: {school: '', loe: '', yog: '', id: uniqid()}});
   };
 
   onSubmitSkill = (e) => {
     e.preventDefault();
-    this.setState({skillArray: this.state.skillArray.concat(this.state.skill), pratcialSkill: {skill: '', id: uniqid()}})
+    this.setState({skillArray: this.state.skillArray.concat(this.state.skill), pratcialSkill: {skill: '', id: uniqid()}});
   };
 
-  testEdit = (e) => {
-    e.preventDefault()
-    console.log(this.state.educationArray)
-    const copy = this.state.educationArray.slice();
-    copy[0] = {school: 'run', loe: 'DMC', yog: 'rules'};
-    console.log(copy)
-    this.setState({educationArray: copy} )
-    console.log(this.state.educationArray)
-  }
-
-  testThis = (e) => {
-    console.log('runs')
+  onEditState = (e) => {
     const copy = this.state.workArray.slice();
     copy[e.target.className] = {employer: 'run', start: 'DMC', end: 'rules', position: copy[e.target.className].position, id: copy[e.target.className].id, pointer: copy[e.target.className].pointer};
     this.setState({workArray: copy} );
-  }
+  };
+
+  onEditPress = (e) => {
+     
+  };
 
   render () {  
       const {work, workArray, education, educationArray, skill, skillArray} = this.state;
