@@ -67,12 +67,15 @@ class App extends Component {
 
   onEditState = (e) => {
     const copy = this.state.workArray.slice();
-    copy[e.target.className] = {employer: 'run', start: 'DMC', end: 'rules', position: copy[e.target.className].position, id: copy[e.target.className].id, pointer: copy[e.target.className].pointer};
-    this.setState({workArray: copy} );
+    copy[this.state.work.pointer] = {employer: this.state.work.employer, start: this.state.work.start, end: this.state.work.end, position: this.state.work.position, id: this.state.work.id, pointer: this.state.work.pointer};
+    this.setState({workArray: copy}, () => {return (this.setState({work: {employer: '', start: '', end: '', position: '', id: uniqid(), pointer: this.state.workArray.length}}))});
   };
 
   onEditPress = (e) => {
-     
+     //show popUp
+     let index = e.target.className;
+     let workArray = this.state.workArray;
+     this.setState({work: {employer: workArray[index].employer, start: workArray[index].start, end: workArray[index].end, position: workArray[index].position, id: workArray[index].id, pointer: workArray[index].pointer}})
   };
 
   render () {  
@@ -104,7 +107,7 @@ class App extends Component {
          </div>
          <button id='workButton' type="submit">Submit</button>
         </form>
-        <Workexperience workArray={workArray} edit={this.testThis}/>
+        <Workexperience workArray={workArray} edit={this.onEditPress}/>
         <form id='educationExperienceForm' onSubmit={this.onSubmitEducation}>
          <div className='educationalExperience'>
            <div>
@@ -139,6 +142,26 @@ class App extends Component {
          </form>
          <PracticalExperience skillArray={skillArray}/>
          <button type='submit' onClick={this.testEdit}>Test Edit</button>
+         <div className="workPopUpContainer"> 
+         <h1>Edit Work</h1>
+     <div>
+             <label htmlFor='employer'>Employer</label>
+             <input onChange={this.onEmployerChange} value={work.employer} id="editEmployer" type='text'></input>
+           </div>  
+           <div>
+             <label htmlFor='start-date'>Start Date</label>
+             <input  onChange={this.onWorkStartChange} value={work.start} id='editStart-date' type='date'></input> 
+           </div>
+           <div>
+             <label htmlFor='end-date'>End Date</label>
+             <input onChange={this.onWorkEndChange} value={work.end} id='editEnd-date' type='date'></input>
+           </div>
+           <div>
+             <label htmlFor='position'>Position</label>
+             <input onChange={this.onPositionChange} value={work.position} id='editPosition' type='text'></input>
+           </div>
+           <button className='workEditButton' onClick={this.onEditState}>Change</button>
+        </div>
       </div>
     );  
   } 
