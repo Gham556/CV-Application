@@ -1,0 +1,29 @@
+
+#root{
+    display: flex;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.workPopUpContainer {
+    visibility: hidden;
+    position: fixed;
+    background: rgb(161, 158, 158);
+    padding: 32px;
+    right: 50vw;
+    bottom: 50vw;
+}
+
+.workPopUpContainer:shown {
+    visibility: visible;
+}
+
+#workExperienceForm {
+    margin: 32px;
+    padding: 32px;
+}
+

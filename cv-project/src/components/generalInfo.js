@@ -1,4 +1,5 @@
 import React from 'react';
+import '../index.css';
 
 const Workexperience = (props) => {
     const {workArray, edit} = props;

@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    flex-direction: column;
+    display: flex;   
+    margin: 32px;
+}
+
+.workPopUpContainer {
+    visibility: hidden;
+    position: fixed;
+    right: 50vw;
+    bottom: 50vh;
+}
+
+.workPopUpContainer:visible {
+    visibility: visible;
+}

@@ -1,8 +1,10 @@
+
 import React, { Component } from 'react';
 import  Workexperience from './components/generalInfo';
 import EducationalExperience from './components/educationalExperience';
 import PracticalExperience from './components/practicalExperience';
 import uniqid from 'uniqid';
+import './index.css';
 
 class App extends Component {
   constructor () {
@@ -72,7 +74,8 @@ class App extends Component {
   };
 
   onEditPress = (e) => {
-     //show popUp
+     const popUp = document.querySelector('.workPopUpContainer')
+     popUp.toggleAttribute('hidden')
      let index = e.target.className;
      let workArray = this.state.workArray;
      this.setState({work: {employer: workArray[index].employer, start: workArray[index].start, end: workArray[index].end, position: workArray[index].position, id: workArray[index].id, pointer: workArray[index].pointer}})
@@ -85,7 +88,7 @@ class App extends Component {
          <div className='header'>
            <h1>Cv Application</h1>
          </div>
-        <form onSubmit={this.onSubmitWork} id="workExperienceFrom">  
+        <form onSubmit={this.onSubmitWork} id="workExperienceForm">  
          <div className='generalExperience'>
            <h1>Work Experience</h1>
            <div>
