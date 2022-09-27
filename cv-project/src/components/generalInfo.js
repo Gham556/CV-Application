@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Workexperience = (props) => {
-    const {workArray} = props;
+    const {workArray, edit} = props;
 
     return (
         <ul> 
@@ -12,6 +12,7 @@ const Workexperience = (props) => {
                 <p>{work.start}</p>
                 <p>{work.end}</p>
                 <p>{work.position}</p>
+                <button className={work.pointer} onClick={edit}>Edit</button>
                </li> 
             )
             }

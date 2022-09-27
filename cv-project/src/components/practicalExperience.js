@@ -8,7 +8,8 @@ const PracticalExperience = (props) => {
             {skillArray.map((skill) => {
                 return (
                     <li key={skill.id}>
-                        {skill}
+                        <p>{skill}</p>
+
                     </li>
                 )
             })}

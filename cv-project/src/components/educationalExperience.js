@@ -11,7 +11,7 @@ const EducationalExperience = (props) => {
                         <p>{edu.school}</p>
                         <p>{edu.loe}</p>
                         <p>{edu.yog}</p>
-                        <button onClick={test}>Test</button>
+                        <button onClick={test}>Edit</button>
                     </li>  
                 )
             })}

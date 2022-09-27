@@ -116,7 +116,7 @@ class App extends Component {
          </div>
          <button id='workButton' type="submit">Submit</button>
         </form>
-        <Workexperience workArray={workArray}/>
+        <Workexperience workArray={workArray} edit={this.testThis}/>
         <form id='educationExperienceForm' onSubmit={this.onSubmitEducation}>
          <div className='educationalExperience'>
            <div>
